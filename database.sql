@@ -1,54 +1,59 @@
-  /*
-  Geschreven door Haki Karer Taylan
-  voor het Social Media project van
-  de opleiding Informatica aan de
-  hogeschool InHolland Haarlem.
-  */
+/*
+Geschreven door Haki Karer Taylan
+voor het Social Media project van
+de opleiding Informatica aan de
+hogeschool InHolland Haarlem.
+*/
 
-create table Alinea (
-  id int(3) not null,
-  titel varchar(60),
-  tekst text,
-  foto_url varchar(200),
-  soort int(1),
-  sortering int(2),
-  pagina int(2) not null,
+create table page (
+  id int not null,
+  name varchar(60),
+  image_url varchar(200),
+  primary key (id)
+);
+
+create table paragraph (
+  id int not null,
+  title varchar(60),
+  body text,
+  image_url varchar(200),
+  soort int,
+  position int,
+  page_id int not null,
   primary key (id),
-  foreign key pagina references Pagina(id)
+  foreign key (page_id) references page (id)
+    on update cascade on delete restrict
 );
 
-create table Media (
-  id int(2) not null,
-  titel varchar(60),
-  beschrijving text,
-  foto_url varchar(200),
-  link text,
-  linktitel varchar(60),
-  sortering int(2),
+create table media (
+  id int not null,
+  title varchar(60),
+  description text,
+  image_url varchar(200),
+  url text,
+  url_title varchar(60),
+  position int(2),
   primary key (id)
 );
 
-create table Werkstuk (
-  id int(2) not null,
-  titel varchar(60),
-  beschrijving text,
-  link text,
-  linktitel varchar(60),
+create table student_work (
+  id int not null,
+  title varchar(60),
+  description text,
+  url text,
+  url_title varchar(60),
   primary key (id)
 );
 
-create table Student (
-  id int(2) not null,
-  naam varchar(60),
-  foto_url varchar(200),
-  tekst text,
+create table student (
+  id int not null,
+  name varchar(60),
+  image_url varchar(200),
+  bio text,
   linkedin_url text,
   primary key (id)
 );
 
 
-create table Pagina (
-  id int(2) not null,
-  naam varchar(60),
-  foto_url varchar(200)
-);
+insert into paragraph (id, title, body, soort)
+values  (1, "test", "jaja", 3);

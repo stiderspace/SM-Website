@@ -1,15 +1,15 @@
 <?php
 /*
-  Publieke site index
+  Public site
 */
-$_PAGE_TITLE = "Dit is de voorkant";
+$_PAGE_TITLE = "Informatica - Opleiding aan de hogeschool InHolland";
 
 
-include 'header.inc';
+include 'header.php';
 ?>
 
 <h1>Index</h1>
 
 <?php
-include 'footer.inc';
+include 'footer.php';
 ?>

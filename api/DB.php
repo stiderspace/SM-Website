@@ -1,44 +1,13 @@
 <?php
+
 /*
   Database connection + functions
 */
-$server_name = "localhost";
-$username = "username";
-$password = "password";
+$dbserver_name = "localhost";
+$dbusername = "socialmedia";
+$dbpassword = "social_media_0/1";
+$dbname = "social_media";
 
-$connection = new mysqli($server_name, $username, $password) or die("Connection failed: " . $connection->connect_error);;
-
-
-/**
-  * Get all business logic
-  */
-include 'alinea.php';
-include 'media.php';
-include 'werkstuk.php';
-include 'student.php';
-include 'pagina.php';
-
-
-/**
-  * Router - api
-  */
-
-/**
-  * /api/alineaid/$id
-  */
-if($_GET['alineaid']) {
-  return getAlineaById($_GET['alineaid']);
-}
-
-/**
-  * /api/alineapageid/$id
-  */
-if($_GET['alineapageid']) {
-  return getAlineasByPageId($_GET['alineapageid']);
-}
-
-
-
-
+$conn = new mysqli($dbserver_name, $dbusername, $dbpassword, $dbname) or die("Connection failed: " . $connection->connect_error);
 
 ?>

@@ -2,14 +2,14 @@
 /*
   Admin index
 */
-$_PAGE_TITLE = "Header test";
+$_PAGE_TITLE = "Informatica opleiding - Control Panel";
 
 
-include 'header.inc';
+include 'header.php';
 ?>
 
 
 
 <?php
-include 'footer.inc';
+include 'footer.php';
 ?>
