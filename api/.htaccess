@@ -2,5 +2,3 @@
 RewriteEngine On
 
 # Routing for the API
-RewriteRule ^paragraph\id\$1 DB.php
-RewriteRule ^paragraph\pageid\$1 DB.php

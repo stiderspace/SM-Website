@@ -1,15 +1,12 @@
 <?php
 /**
   * Database object
+  * Database connection + functions
   *
   * Haki Karer Taylan - www.vresh.nl
   * Social Media project
   */
 
-
-/*
-  Database connection + functions
-*/
 $dbserver_name = "localhost";
 $dbusername = "socialmedia";
 $dbpassword = "social_media_0/1";
@@ -29,7 +26,7 @@ function jsonreturner($queryresult) {
   * Queries the database with the given query
   * Returns either a JSON result or throws an exception.
   */
-function querydb($query) {
+function db_select($query) {
   global $conn;
 
   if($result = $conn->query($query)) {
@@ -41,9 +38,20 @@ function querydb($query) {
 
     else
       throw new Exception("no results");
-  } else {
+  } else
     throw new Exception("query failed");
-  }
 }
 
+/**
+  * Inserts data from query
+  * Returns true on succes else false
+  */
+function db_insert($query) {
+  global $conn;
+
+  if($conn->query($query))
+    return true;
+  else
+    throw new Exception("inserting data failed");
+}
 ?>

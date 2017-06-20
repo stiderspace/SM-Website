@@ -17,7 +17,7 @@ create table paragraph (
   title varchar(60),
   body text,
   image_url varchar(200),
-  soort int,
+  type int,
   position int,
   page_id int not null,
   primary key (id),
@@ -52,4 +52,11 @@ create table student (
   bio text,
   linkedin_url text,
   primary key (id)
+);
+
+create table user (
+  id int not null,
+  username varchar(60),
+  email varchar(80),
+  password text
 );

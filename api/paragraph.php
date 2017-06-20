@@ -7,13 +7,43 @@ include "DB.php";
   * Only returns JSON
   */
 class Paragraph {
+
+  /**
+    * Returns a bool, true or false
+    */
+  function create() {    
+    $id = $_POST["id"];
+    $title = $_POST["title"];
+    $body = $_POST["body"];
+    $image_url = $_POST["image_url"];
+    $type = $_POST["type"];
+    $position = $_POST["position"];
+    $page_id = $_POST["page_id"];
+
+    $query = "insert into paragraph(id, title, body, image_url, type, position, page_id)
+    values ({$id}, \"{$title}\", \"{$body}\", \"{$image_url}\", {$type}, {$position}, {$page_id});";
+
+    // Returns succes string or fail for javascript to use for refreshing the form
+    try {
+      db_insert($query);
+      echo "succes";
+    } catch(Exception $e) {
+      echo "Error: {$e->getMessage()}";
+    }
+  }
+
+
+
+  /**
+    * Returns all rows from paragraph
+    */
   function getAll() {
       $query = "select * from paragraph";
 
       try {
-        querydb($query);
+        db_select($query);
       } catch(Exception $e) {
-        echo "Error: " . $e->getMessage();
+        echo "Error: {$e->getMessage()}";
       }
 
   }
@@ -30,11 +60,11 @@ class Paragraph {
 
     try {
       if(is_numeric($id))
-        querydb($query);
+        db_select($query);
       else
         throw new Exception("Only accepts numbers");
     } catch(Exception $e) {
-      echo "Error: " . $e->getMessage();
+      echo "Error: {$e->getMessage()}";
     }
   }
 
@@ -46,29 +76,19 @@ class Paragraph {
     */
   function getByPageId($id) {
     global $conn;
-
     $query =  "select * from paragraph where page_id = " . $id;
 
     try {
       if(is_numeric($id))
-        querydb($query);
+        db_select($query);
       else
         throw new Exception("Only accepts numbers");
     } catch(Exception $e) {
-      echo "Error: " . $e->getMessage();
+      echo "Error: {$e->getMessage()}";
     }
   }
 
-  /**
-    * Creates a paragraph
-    * @param $title Paragraph title
-    * @param $body Paragraph text
-    * @param $image_url Picture url
-    * @param $type Paragraph type, required for the rendering
-    * @param $position Returns position of paragraph
-    * @param $page_id The page id of this paragraph
-    */
-  function create() {
+  function delete($id) {
 
   }
 }
