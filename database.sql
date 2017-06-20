@@ -53,7 +53,3 @@ create table student (
   linkedin_url text,
   primary key (id)
 );
-
-
-insert into paragraph (id, title, body, soort)
-values  (1, "test", "jaja", 3);

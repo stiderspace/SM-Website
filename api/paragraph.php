@@ -1,72 +1,75 @@
 <?php
+include "DB.php";
 
-include 'DB.php';
-
-function jsonreturner($queryresult) {
-  header('Content-type:application/json;charset=utf-8');
-  echo json_encode($queryresult);
-}
 
 /**
-  * Returns single paragraph
-  * Only accepting numeric input
-  * @param $id The primary key of a paragraph
-  * @return json Returns JSON notation of a paragraph
+  * Controls the paragraph table in the database
+  * Only returns JSON
   */
-function getParagraphById($id) {
-  global $conn;
+class Paragraph {
+  function getAll() {
+      $query = "select * from paragraph";
 
-  if(is_numeric($id)) {
-    $query =  "select * from paragraph " .
-              "where id is " . $id;
+      try {
+        querydb($query);
+      } catch(Exception $e) {
+        echo "Error: " . $e->getMessage();
+      }
+
+  }
+
+  /**
+    * Returns single paragraph
+    * Only accepting numeric input
+    * @param $id The primary key of a paragraph
+    * @return json Returns JSON notation of a paragraph
+    */
+  function getById($id) {
+    global $conn;
+    $query =  "select * from paragraph where id = " . $id;
 
     try {
-      $arr = array('a' => 1, 'b' => 2);
-      /* $result = $conn->query($query); */
-      jsonreturner($arr);
+      if(is_numeric($id))
+        querydb($query);
+      else
+        throw new Exception("Only accepts numbers");
     } catch(Exception $e) {
-      echo $id . "not found";
+      echo "Error: " . $e->getMessage();
     }
-  } else {
-    echo "fuckoffcheater";
   }
-}
 
 
-/**
-  * Returns all paragraphs of a page
-  * Only accepting numeric input
-  * @param $id The id of a paragraph
-  */
-function getParagraphsByPageId($id) {
-  global $conn;
+  /**
+    * Returns all paragraphs of a page
+    * Only accepting numeric input
+    * @param $id The id of a paragraph
+    */
+  function getByPageId($id) {
+    global $conn;
 
-  if(is_numeric($id)) {
-    $query =  "select * from paragraph " .
-              "where pageid is " . $id;
+    $query =  "select * from paragraph where page_id = " . $id;
 
     try {
-      $result = $conn->query($query);
-      echo "ditisparagraphsbypageid";
-
+      if(is_numeric($id))
+        querydb($query);
+      else
+        throw new Exception("Only accepts numbers");
     } catch(Exception $e) {
-      return "No results for this page";
+      echo "Error: " . $e->getMessage();
     }
   }
+
+  /**
+    * Creates a paragraph
+    * @param $title Paragraph title
+    * @param $body Paragraph text
+    * @param $image_url Picture url
+    * @param $type Paragraph type, required for the rendering
+    * @param $position Returns position of paragraph
+    * @param $page_id The page id of this paragraph
+    */
+  function create() {
+
+  }
 }
-
-/**
-  * Creates a paragraph
-  * @param $title Paragraph title
-  * @param $body Paragraph text
-  * @param $image_url Picture url
-  * @param $type Paragraph type, required for the rendering
-  * @param $position Returns position of paragraph
-  * @param $page_id The page id of this paragraph
-  */
-function createParagraph() {
-
-}
-
-
 ?>

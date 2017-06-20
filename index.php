@@ -5,11 +5,11 @@
 $_PAGE_TITLE = "Informatica - Opleiding aan de hogeschool InHolland";
 
 
-include 'header.php';
+include "header.php";
 ?>
 
 <h1>Index</h1>
 
 <?php
-include 'footer.php';
+include "footer.php";
 ?>
