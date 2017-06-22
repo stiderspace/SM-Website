@@ -11,8 +11,8 @@ class Paragraph {
   /**
     * Returns a bool, true or false
     */
-  function create() {    
-    $id = $_POST["id"];
+  function create() {
+    $id = 13;
     $title = $_POST["title"];
     $body = $_POST["body"];
     $image_url = $_POST["image_url"];
@@ -20,12 +20,12 @@ class Paragraph {
     $position = $_POST["position"];
     $page_id = $_POST["page_id"];
 
-    $query = "insert into paragraph(id, title, body, image_url, type, position, page_id)
+    $sql = "insert into paragraph(id, title, body, image_url, type, position, page_id)
     values ({$id}, \"{$title}\", \"{$body}\", \"{$image_url}\", {$type}, {$position}, {$page_id});";
 
     // Returns succes string or fail for javascript to use for refreshing the form
     try {
-      db_insert($query);
+      DB::insert($sql);
       echo "succes";
     } catch(Exception $e) {
       echo "Error: {$e->getMessage()}";
@@ -38,10 +38,10 @@ class Paragraph {
     * Returns all rows from paragraph
     */
   function getAll() {
-      $query = "select * from paragraph";
+      $sql = "select * from paragraph";
 
       try {
-        db_select($query);
+        DB::select($sql);
       } catch(Exception $e) {
         echo "Error: {$e->getMessage()}";
       }
@@ -56,11 +56,11 @@ class Paragraph {
     */
   function getById($id) {
     global $conn;
-    $query =  "select * from paragraph where id = " . $id;
+    $sql =  "select * from paragraph where id = " . $id;
 
     try {
       if(is_numeric($id))
-        db_select($query);
+        DB::select($sql);
       else
         throw new Exception("Only accepts numbers");
     } catch(Exception $e) {
@@ -76,11 +76,11 @@ class Paragraph {
     */
   function getByPageId($id) {
     global $conn;
-    $query =  "select * from paragraph where page_id = " . $id;
+    $sql =  "select * from paragraph where page_id = " . $id;
 
     try {
       if(is_numeric($id))
-        db_select($query);
+        DB::select($sql);
       else
         throw new Exception("Only accepts numbers");
     } catch(Exception $e) {
@@ -88,8 +88,37 @@ class Paragraph {
     }
   }
 
-  function delete($id) {
+  /**
+    * Updates the paragraph
+    * @param $id The paragraph id
+    */
+  function update($id) {
+    $id = $_POST["id"];
+    $title = $_POST["title"];
+    $body = $_POST["body"];
+    $image_url = $_POST["image_url"];
+    $type = $_POST["type"];
+    $position = $_POST["position"];
+    $page_id = $_POST["page_id"];
 
+    $sql = "insert into paragraph(id, title, body, image_url, type, position, page_id)
+    values ({$id}, \"{$title}\", \"{$body}\", \"{$image_url}\", {$type}, {$position}, {$page_id});";
+
+    // Returns succes string or fail for javascript to use for refreshing the form
+    try {
+      DB::insert($sql);
+      echo "succes";
+    } catch(Exception $e) {
+      echo "Error: {$e->getMessage()}";
+    }
+  }
+
+  function delete($id) {
+    try {
+      DB::delete($id, "paragraph");
+    } catch(Exception $e) {
+      echo "Error {$e->getMessage()}";
+    }
   }
 }
 ?>

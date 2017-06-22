@@ -1,6 +1,6 @@
 <?php
 /**
-  * API of the backend
+  * API of the backend - Part of the router index.php
   *
   * Haki Karer Taylan - www.vresh.nl
   * Social Media project
@@ -17,63 +17,73 @@ include "paragraph.php";
 
 
 /**
-  * Router - api
-  * All functions from the models are returned to stop the script where the returned function ends.
+  * @param $m The method either get or post
+  * @param $t The table name
+  * @param $a Action type, can be create/update/get/delete
+  * @param $i Id, can be new/a numeric representing an id/all
   */
+function url($m, $t, $a, $i) {
+  if($_SERVER["REQUEST_METHOD"] === $m) {
+    if($_POST["t"] === $t) {
+      if($_POST["a"] === $a) {
+        if($_POST["i"] === $i) {
+          return true;
+        }
+      }
+    }
+  } else
+    return false;
+}
 
 /**
-  * TYPE: POST
   * Creates paragraph
-  * /api/?create
+  * /api/paragraph/create
   */
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-  if(isset($_GET["create"]))
-    return Paragraph::create();
+if(url("POST", "paragraph", "create", "new")) {
+  return Paragraph::create();
 }
 
 /**
-  * TYPE: GET
   * Gets all paragraphs
-  * /api/?all
+  * /api/paragraph/all
   */
-if($_SERVER["REQUEST_METHOD"] == "GET") {
-  if(isset($_GET["all"]))
-    return Paragraph::getAll();
+if(url("GET", "paragraph", "get", "all")) {
+  return Paragraph::getAll();
 }
 
 /**
-  * TYPE: GET
   * Get paragraph by id
-  * /api/?paragraphid=$id
   * /api/paragraph/id/$id
   */
 if($_SERVER["REQUEST_METHOD"] == "GET") {
-  if(isset($_GET["paragraphid"]))
-    return Paragraph::getById($_GET["paragraphid"]);
+  if(isset($_GET["paragraph/"]))
+    return Paragraph::getById($_GET["paragraph/id/"]);
 }
 
 /**
-  * TYPE: GET
   * Get paragraph by page id
-  * /api/?paragraphpageid=$id
   * /api/paragraph/pageid/$id
   * return json paragraph
   */
 if($_SERVER["REQUEST_METHOD"] == "GET") {
-  if(isset($_GET["paragraphpageid"]))
-    return Paragraph::getByPageId($_GET["paragraphpageid"]);
+  if(isset($_GET["paragraph/page/id"]))
+    return Paragraph::getByPageId($_GET["paragraph/page/id/"]);
+}
+
+/**
+  * Updates paragraph with corresponding $id
+  */
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+  if(isset($_GET["paragraph/"]))
+    return Paragraph::update($_GET["paragraph/id/"]);
+}
+
+/**
+  * Deletes paragraph with corresponding $id
+  */
+if($_SERVER["REQUEST_METHOD"] == "GET") {
+  if(isset($_GET["paragraph/delete/"]))
+    return Paragraph::delete($_GET["paragraph/delete/"]);
 }
 
 ?>
-
-
-<form action="index.php?create" method="post">
-  <input type="number" name="id" hidden="" />
-  <input type="text" name="title" />
-  <input type="textarea" name="body" />
-  <input type="text" name="image-url" />
-  <input type="number" name="type" />
-  <input type="number" name="position" />
-  <input type="number" name="page_id" />
-  <input type="submit" />
-</form>

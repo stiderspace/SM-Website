@@ -2,3 +2,6 @@
 RewriteEngine On
 
 # Routing for the API
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /api/index.php [NC,L,QSA]
