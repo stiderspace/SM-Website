@@ -1,8 +1,8 @@
 /*
-Geschreven door Haki Karer Taylan
-voor het Social Media project van
-de opleiding Informatica aan de
-hogeschool InHolland Haarlem.
+  Geschreven door Haki Karer Taylan
+  voor het Social Media project van
+  de opleiding Informatica aan de
+  hogeschool InHolland Haarlem.
 */
 
 create table page (

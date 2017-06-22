@@ -12,7 +12,7 @@ class Paragraph {
     * Returns a bool, true or false
     */
   function create() {
-    $id = 13;
+    $id = 13; // ????
     $title = $_POST["title"];
     $body = $_POST["body"];
     $image_url = $_POST["image_url"];
@@ -102,7 +102,7 @@ class Paragraph {
     $page_id = $_POST["page_id"];
 
     $sql = "insert into paragraph(id, title, body, image_url, type, position, page_id)
-    values ({$id}, \"{$title}\", \"{$body}\", \"{$image_url}\", {$type}, {$position}, {$page_id});";
+    values ({$id}, \"{$title}\", \"{$body}\", \"{$image_url}\", {$type}, {$position}, {$page_id});"; // Moet update tatement zijn
 
     // Returns succes string or fail for javascript to use for refreshing the form
     try {
