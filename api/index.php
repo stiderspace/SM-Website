@@ -7,14 +7,18 @@
   * Social Media project
   */
 
+
+
 /**
-  * Get all business logic
+  * get models
   */
+include "DB.php";
+include "page.php";
 include "paragraph.php";
 // include "media.php";
-// include "werkstuk.php";
+// include "student_work.php";
 // include "student.php";
-// include "pagina.php";
+
 
 
 /**
@@ -36,16 +40,29 @@ function url($m, $t, $a) {
 
 
 
+/* -------------    page   -------------- */
+/**
+  * Gets page
+  *
+  */
+if(url("GET", "page", "get")) {
+  if(is_numeric($_GET["i"]))
+    return Page::getById($_GET["i"]); }
+
+
 
 /* ------------- paragraph -------------- */
-
-
 /**
   * Creates paragraph
-  * /api/paragraph/create
   */
 if(url("POST", "paragraph", "create"))
   return Paragraph::create();
+
+/**
+  * Gets all paragraphs
+  */
+if(url("GET", "paragraph", "getAll"))
+  return Paragraph::getAll();
 
 /**
   * Gets paragraph by ID - checks if the id is a number
@@ -53,12 +70,6 @@ if(url("POST", "paragraph", "create"))
 if(url("GET", "paragraph", "get")) {
   if(is_numeric($_GET["i"]))
     return Paragraph::getById($_GET["i"]); }
-
-/**
-  * Gets all paragraphs
-  */
-if(url("GET", "paragraph", "getAll"))
-  return Paragraph::getAll();
 
 /**
   * Get paragraph by page id

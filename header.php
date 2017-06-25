@@ -13,23 +13,20 @@
       <nav id="inholland-menu">
         <li><a href="#">Opleidingen</a></li>
         <li><a href="#">Contact & info</a></li>
-        <li><a href="<?php echo basename($_SERVER['PHP_SELF']) . '?lang=NL' ?>"><img src="img\nl.png" alt="Nederlands" /></a></li>
-        <li><a href="<?php echo basename($_SERVER['PHP_SELF']) . '?lang=EN'  ?>"><img src="img\uk.jpg" alt="English" /></a></li>
+        <li><a href="<?php echo basename($_SERVER['PHP_SELF']) . '?t=page&a=get&i=' . $_PAGE_ID . '&lang=NL' ?>"><img src="img\nl.png" alt="Nederlands" /></a></li>
+        <li><a href="<?php echo basename($_SERVER['PHP_SELF']) . '?t=page&a=get&i=' . $_PAGE_ID . '&lang=EN'  ?>"><img src="img\uk.jpg" alt="English" /></a></li>
       </nav>
     </section>
     <section id="informatica-bar">
-      <section id="toi">
-        Domein Techniek, Ontwerp en Informatica
-      </section>
       <section id="informatica">
-        Informatica
+        <a href="?t=page&a=get&i=1">Informatica</a>
       </section>
       <nav id="informatica-menu">
-        <li><a href="#">Programma</a></li>
-        <li><a href="#">Opleiding in beeld</a></li>
-        <li><a href="#">Werk van studenten</a></li>
-        <li><a href="#">(Oud)studenten</a></li>
-        <li><a href="#">Haarlem</a></li>
+        <li><a href="?t=page&a=get&i=2">Programma</a></li>
+        <li><a href="?t=page&a=get&i=3">Opleiding in beeld</a></li>
+        <li><a href="?t=page&a=get&i=4">Werk van studenten</a></li>
+        <li><a href="?t=page&a=get&i=5">(Oud)studenten</a></li>
+        <li><a href="?t=page&a=get&i=6">Haarlem</a></li>
       </nav>
     </section>
   </header>
