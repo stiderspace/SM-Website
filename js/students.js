@@ -6,10 +6,10 @@
 var container = document.querySelector('.container');
 
 /**
-  * Adds the intro text
+  * Adds all students
   */
-fetch('api/?t=student_work&a=getAll')
+fetch('api/?t=student&a=getAll')
   .then(function(response) { return response.json(); })
   .then(function(data) {
-    addStudentWork(data, container);
+    addStudents(data, container);
   });

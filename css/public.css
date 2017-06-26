@@ -18,20 +18,34 @@ header { width: 100%; height: 60vh; }
 #inholland-logo { float: left; height: 4em; }
 #inholland-logo img { width: 8em; padding: 1em; }
 #inholland-menu { float: right; height: 4em; padding: 0; margin: 0; }
-#inholland-menu li { line-height: 4em; display: inline-block; }
+#inholland-menu li { line-height: 4em; padding: 0 0.5em 0 0.5em; display: inline-block; }
+#inholland-menu li a { color: #404042; font-weight: bold; text-decoration: none; transition: ease-in-out 0.3s; }
+#inholland-menu li a:hover { color: black; }
 #inholland-menu img { height: 1em; width: 1em; }
 
-#informatica-bar { width: 100%; height: 7.5em; margin: auto; background: rgba(44, 74, 109, 1); color: white; }
-#informatica-bar a { color: white; text-decoration: none; }
-#informatica-title { float: left; }
-#informatica-menu { float: right; }
-#informatica-menu li { display: inline; }
+#informatica-bar a:hover { color: white; }
+#informatica-title { padding-top: 2em; float: left; font-size: 2em; font-weight: bold; }
+#informatica-title a { color: white; text-decoration: none; }
+#informatica-menu { padding-top: 4em; float: right; }
+#informatica-menu li { display: inline; padding: 0 0.5em 0 0.5em; font-weight: bold; color: whitesmoke; }
+#informatica-menu li a { color: #babcbc; text-decoration: none; transition: ease-in-out 0.3s; }
+
+#menu-mobile { position: fixed; height: 100vh; width: 100%; transition: ease-in-out 0.5s; }
+#menu-mobile-bar { width: calc(100% - 2em); height: calc(4em - 2em); padding: 1em; }
+#menu-mobile-logo { float: left; }
+#menu-mobile-logo img { height: 2em; }
+#menu-mobile-hamburger { float: right; }
+#menu-mobile-list { display: none; }
+#menu-mobile nav { margin: 0; padding: 1em; }
+#menu-mobile li { list-style: none; font-size: 1.25em; font-weight: bold; line-height: 1.5em; }
+#menu-mobile li a { text-decoration: none; color: grey; transition: 0.3s ease-in-out; }
+#menu-mobile li a:hover { color: black; }
+#menu-mobile li hr { width: calc(100vw - 2em); }
 
 
-
-.container { width: calc(100% - 2em); padding: 1em; }
+.container { width: calc(100% - 2em); overflow: auto; padding: 1em; background: white; }
 .intro h1 { font-size: 2em; font-weight: bold; text-align: center; }
-.intro p { font-size: 1.25em; text-align: center; padding: 2em; }
+.intro p { font-size: 1.25em; text-align: center; padding: 0 2em 2em 2em; }
 
 
 
@@ -42,7 +56,14 @@ footer { width: calc(100% - 2em); height: 12em; padding: 1em; background: rgb(51
 @media only screen and (min-width: 1020px) {
   #menu-desktop { display: block; }
   #menu-mobile { display: none; }
-  #informatica-bar { width: 1020px; margin: auto; }
+  #informatica-bar {
+    width: calc(1020px - 2em);
+    height: calc(7.5em - 2em);
+    margin: auto;
+    padding: 1em;
+    background: rgba(44, 74, 109, 0.7);
+    border-bottom: 2px solid rgba(44, 74, 109, 1);
+    color: white; }
 
 
 

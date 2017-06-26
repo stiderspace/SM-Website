@@ -1,3 +1,8 @@
+/**
+  * Adds a page intro
+  * @param data Array containing the intro paragraph of the page
+  * @param container The container section to append the data to
+  */
 function addIntro(data, container) {
   var intro = document.createElement('section');
   intro.classList.add('intro');
@@ -10,4 +15,127 @@ function addIntro(data, container) {
   intro.appendChild(title);
   intro.appendChild(paragraph);
   container.appendChild(intro);
+}
+
+/**
+  * Adds all paragraphs except intro paragraph
+  * @param data JSON array
+  * @param container Container section to append data to
+  */
+function addParagraphs(data, container) {
+  for(var i = 1; i < data.length; i++) {
+    var pContainer = document.createElement('section');
+    var tContainer = document.createElement('section');
+
+    var title = document.createElement('h2');
+    var p = document.createElement('p');
+
+    // left-photo
+    if(data[i].type == 2) {
+      pContainer.classList.add('left-photo');
+      title.innerHTML = data[i].title;
+      p.innerHTML = data[i].body;
+      pContainer.style.backgroundImage = ("url(img/" + data[i].image_url + ")");
+    }
+    // right-photo
+    if(data[i].type == 3) {
+      pContainer.classList.add('right-photo');
+      title.innerHTML = data[i].title;
+      p.innerHTML = data[i].body;
+      pContainer.style.backgroundImage = "url(img/" + data[i].image_url + ")";
+    }
+    // normal
+    if(data[i].type == 4) {
+      pContainer.classList.add('normal');
+      title.innerHTML = data[i].title;
+      p.innerHTML = data[i].body;
+    }
+    // normal without title
+    if(data[i].type == 5) {
+      pContainer.classList.add('normal');
+      p.innerHTML = data[i].body;
+    }
+
+
+    pContainer.appendChild(tContainer);
+    tContainer.appendChild(title);
+    tContainer.appendChild(p);
+    container.appendChild(pContainer);
+  }
+}
+
+/**
+  * Adds all media
+  * @param data JSON array
+  * @param container Container section to append data to
+  */
+function addAllMedia(data, container) {
+  for(var i = 0; i < data.length; i++) {
+    var pContainer = document.createElement('section');
+    var tContainer = document.createElement('section');
+
+    var title = document.createElement('h2');
+    var p = document.createElement('p');
+
+    pContainer.classList.add('left-photo');
+    title.innerHTML = data[i].title;
+    p.innerHTML = data[i].description;
+    pContainer.style.backgroundImage = ("url(img/" + data[i].image_url + ")");
+
+
+    pContainer.appendChild(tContainer);
+    tContainer.appendChild(title);
+    tContainer.appendChild(p);
+    container.appendChild(pContainer);
+  }
+}
+
+/**
+  * Adds all student work
+  * @param data JSON array
+  * @param container Container section to append data to
+  */
+function addStudentWork(data, container) {
+  for(var i = 0; i < data.length; i++) {
+    var pContainer = document.createElement('section');
+    var tContainer = document.createElement('section');
+
+    var title = document.createElement('h2');
+    var p = document.createElement('p');
+
+    pContainer.classList.add('left-photo');
+    title.innerHTML = data[i].title;
+    p.innerHTML = data[i].description;
+
+
+    pContainer.appendChild(tContainer);
+    tContainer.appendChild(title);
+    tContainer.appendChild(p);
+    container.appendChild(pContainer);
+  }
+}
+
+/**
+  * Adds all student work
+  * @param data JSON array
+  * @param container Container section to append data to
+  */
+function addStudents(data, container) {
+  for(var i = 0; i < data.length; i++) {
+    var pContainer = document.createElement('section');
+    var tContainer = document.createElement('section');
+
+    var title = document.createElement('h2');
+    var p = document.createElement('p');
+
+    pContainer.classList.add('left-photo');
+    title.innerHTML = data[i].name;
+    p.innerHTML = data[i].bio;
+
+
+    pContainer.appendChild(tContainer);
+    tContainer.appendChild(title);
+    tContainer.appendChild(p);
+    container.appendChild(pContainer);
+  }
 }

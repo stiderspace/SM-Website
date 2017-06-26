@@ -85,8 +85,9 @@ class DB {
   }
 
   /**
-    * Inserts data from query - insert only queries
-    * Returns true on succes else false
+    * Updates a table with given query
+    * @param $table table on which the update applies
+    * @param $sql The query containing just a SET and WHERE statement
     */
   function update($table, $sql) {
     global $conn;

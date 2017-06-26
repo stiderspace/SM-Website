@@ -12,4 +12,5 @@ fetch('api/?t=paragraph&a=getByPageId&i=2')
   .then(function(response) { return response.json(); })
   .then(function(data) {
     addIntro(data, container);
+    addParagraphs(data, container);
   });
