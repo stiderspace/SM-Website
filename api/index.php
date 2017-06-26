@@ -42,12 +42,23 @@ function url($m, $t, $a) {
 
 /* -------------    page   -------------- */
 /**
+  * Gets all pages
+  */
+if(url("GET", "page", "getAll"))
+  return Page::getAll();
+
+/**
   * Gets page
-  *
   */
 if(url("GET", "page", "get")) {
   if(is_numeric($_GET["i"]))
     return Page::getById($_GET["i"]); }
+
+/**
+  * Updates paragraph with corresponding $id
+  */
+if(url("POST", "page", "update"))
+  return Page::update($_GET["i"]);
 
 
 

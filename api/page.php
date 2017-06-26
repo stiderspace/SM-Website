@@ -1,7 +1,4 @@
 <?php
-
-
-
 /**
   * Controls the paragraph table in the database
   * Only returns JSON
@@ -14,38 +11,28 @@ class Page {
     * @return Returns JSON notation of a page
     */
   function getById($id) {
-    global $conn;
-    $sql =  "select * from paragraph where id = " . $id;
-
-    try {
-      if(is_numeric($id))
-        DB::select($sql);
-      else
-        throw new Exception("Only accepts numbers");
-    } catch(Exception $e) {
-      echo "Error: {$e->getMessage()}";
-    }
+    DB::getById($id, "page");
   }
 
   /**
-    * Updates the paragraph
-    * @param $id The paragraph id
+    * @return All pages in JSON
+    */
+  function getAll() {
+    DB::getAll("page");
+  }
+
+  /**
+    * Updates the page
+    * @param $id The page id
     */
   function update($id) {
-    $id = $_POST["id"];
     $name = $_POST["name"];
     $image_url = $_POST["image_url"];
 
-    $sql = "insert into paragraph(id, name, image_url)
-    values ({$id}, \"{$name}\", \"{$image_url}\");"; // Moet update tatement zijn
+    $sql = "set name = {$name}, image_url = {$image_url}
+            where id = {$id}";
 
-    // Returns succes string or fail for javascript to use for refreshing the form
-    try {
-      DB::insert($sql);
-      echo "succes";
-    } catch(Exception $e) {
-      echo "Error: {$e->getMessage()}";
-    }
+    DB::update("page", $sql);
   }
 
 }

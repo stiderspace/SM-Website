@@ -2,7 +2,8 @@
 /*
   Public site
 */
-$_PAGE_TITLE = "Informatica - Opleiding aan de hogeschool InHolland";
+include 'page_helper.php';
+Page_helper::set_page_vars(3);
 
 
 include "header.php";

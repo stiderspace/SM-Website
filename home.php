@@ -1,15 +1,22 @@
 <?php
-/*
-  Public site
-*/
-$_PAGE_TITLE = "Informatica - Opleiding aan de hogeschool InHolland";
+/**
+  * home page
+  * id = 1
+  */
 
 
+
+include 'page_helper.php';
+Page_helper::set_page_vars(1);
 include "header.php";
 ?>
 
-<h1>HOME</h1>
+  <section class="container">
+
+
+  </section>
+  <script src="js/home.js"></script> <!-- important to have js run after the page is loaded, had issues with js not seeing tags that load after -->
 
 <?php
-include "footer.php";
+  include "footer.php";
 ?>

@@ -1,56 +1,54 @@
-/*
-  CSS voor Social Media project
-  Publieke gedeelte van de site
-  autheur: Haki Karer Taylan
+/* CSS voor Social Media project Publieke gedeelte van de site autheur: Haki Karer Taylan
 */
+html { font-family: 'Helvetica', 'Calibri', 'Arial', sans-serif; }
+body { margin: 0; padding: 0; background: whitesmoke; font-size: 16px; line-height: 1.5em; }
 
-body {
-  margin: 0;
-  padding: 0;
-  background: whitesmoke;
-  font-size: 16px;
-  line-height: 1.5em;
-}
 
-p {
-  font-size: 0.75em;
-  padding: 1em;
-  line-height: 1.5em;
-}
 
-header {
-  width: 100%;
-  height: 80vh;
-}
+h1 { color: #2c4a6d; font-weight: bold; }
+p { padding: 1em; line-height: 1.5em; }
+header { width: 100%; height: 60vh; }
 
-#inholland-bar {
-  width: 100%;
-  height: 4em;
-  background: white;
-}
 
-#inholland-logo {
-  float: left;
-  height: 4em;
-}
-#inholland-logo img {
-  width: 8em;
-  padding: 1em;
-}
 
-#inholland-menu {
-  float: right;
-  height: 4em;
-  padding: 0;
-  margin: 0;
-}
+#menu-desktop { display: none; }
+#menu-mobile { display: block; }
 
-#inholland-menu li {
-  line-height: 4em;
-  display: inline-block;
-}
+#inholland-bar { width: 100%; height: 4em; background: white; }
+#inholland-logo { float: left; height: 4em; }
+#inholland-logo img { width: 8em; padding: 1em; }
+#inholland-menu { float: right; height: 4em; padding: 0; margin: 0; }
+#inholland-menu li { line-height: 4em; display: inline-block; }
+#inholland-menu img { height: 1em; width: 1em; }
 
-#inholland-menu img {
-  height: 1em;
-  width: 1em;
+#informatica-bar { width: 100%; height: 7.5em; margin: auto; background: rgba(44, 74, 109, 1); color: white; }
+#informatica-bar a { color: white; text-decoration: none; }
+#informatica-title { float: left; }
+#informatica-menu { float: right; }
+#informatica-menu li { display: inline; }
+
+
+
+.container { width: calc(100% - 2em); padding: 1em; }
+.intro h1 { font-size: 2em; font-weight: bold; text-align: center; }
+.intro p { font-size: 1.25em; text-align: center; padding: 2em; }
+
+
+
+footer { width: calc(100% - 2em); height: 12em; padding: 1em; background: rgb(51, 51, 51); border-bottom: 1em solid #2c4a6d; }
+
+
+
+@media only screen and (min-width: 1020px) {
+  #menu-desktop { display: block; }
+  #menu-mobile { display: none; }
+  #informatica-bar { width: 1020px; margin: auto; }
+
+
+
+  .container { width: calc(1020px - 4em); padding: 2em; margin: auto; }
+
+
+
+  footer { width: calc(1020px - 2em); margin: auto; }
 }

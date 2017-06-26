@@ -34,6 +34,37 @@ class DB {
   }
 
   /**
+    * Gets $id from $table
+    * @param $id Id of the row
+    * @param $table Table name
+    */
+  function getById($id, $table) {
+    $sql =  "select * from {$table} where id = {$id}";
+
+    try {
+      if(is_numeric($id))
+        DB::select($sql);
+      else
+        throw new Exception("Only accepts numbers");
+    } catch(Exception $e) {
+      echo "Error: {$e->getMessage()}";
+    }
+  }
+
+  /**
+    * Returns all from $table
+    */
+  function getAll($table) {
+      $sql = "select * from {$table}";
+
+      try {
+        DB::select($sql);
+      } catch(Exception $e) {
+        echo "Error: {$e->getMessage()}";
+      }
+  }
+
+  /**
     * Queries the database with the given query - select only queries
     * Returns either a JSON result or throws an exception.
     */
@@ -51,6 +82,25 @@ class DB {
         throw new Exception("no results");
     } else
       throw new Exception("query failed");
+  }
+
+  /**
+    * Inserts data from query - insert only queries
+    * Returns true on succes else false
+    */
+  function update($table, $sql) {
+    global $conn;
+
+    $query = "update {$table} " . $sql;
+
+    try {
+      if($conn->query($sql))
+        return true;
+      else
+        throw new Exception("updating data failed");
+    } catch(Exception $e) {
+      echo "Error: {$e->getMessage()}";
+    }
   }
 
   /**

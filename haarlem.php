@@ -2,13 +2,19 @@
 /*
   Public site
 */
-$_PAGE_TITLE = "Informatica - Opleiding aan de hogeschool InHolland";
+include 'page_helper.php';
+Page_helper::set_page_vars(6);
 
 
 include "header.php";
 ?>
 
-<h1>Haarlem</h1>
+<section class="container">
+
+
+</section>
+<script src="js/haarlem.js"></script> <!-- important to have js run after the page is loaded, had issues with js not seeing tags that load after -->
+
 
 <?php
 include "footer.php";

@@ -6,14 +6,14 @@
 */
 
 create table page (
-  id int not null,
+  id int not null auto_increment,
   name varchar(60),
   image_url varchar(200),
   primary key (id)
 );
 
 create table paragraph (
-  id int not null,
+  id int not null auto_increment,
   title varchar(60),
   body text,
   image_url varchar(200),
@@ -26,18 +26,20 @@ create table paragraph (
 );
 
 create table media (
-  id int not null,
+  id int not null auto_increment,
   title varchar(60),
   description text,
   image_url varchar(200),
   url text,
   url_title varchar(60),
   position int(2),
-  primary key (id)
+  page_id int not null,
+  primary key (id),
+  foreign key (page_id) references page (id)
 );
 
 create table student_work (
-  id int not null,
+  id int not null auto_increment,
   title varchar(60),
   description text,
   url text,
@@ -46,7 +48,7 @@ create table student_work (
 );
 
 create table student (
-  id int not null,
+  id int not null auto_increment,
   name varchar(60),
   image_url varchar(200),
   bio text,
@@ -54,9 +56,10 @@ create table student (
   primary key (id)
 );
 
-create table user (
-  id int not null,
+create table account (
+  id int not null auto_increment,
   username varchar(60),
   email varchar(80),
-  password text
+  password text,
+  primary key (id)
 );

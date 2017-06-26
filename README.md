@@ -15,17 +15,18 @@ The website has 6 hardcoded id's for the 6 pages:
 - haarlem
 
 # Paragraph types - int:
-0 - normal (full width)
-1 - intro (intro text)
-2 - left-photo
-3 - right-photo
+- 1 = intro (intro text)
+- 2 = left-photo
+- 3 = right-photo
+- 4 = normal (full width)
+- 5 = normal without title (full width)
 
 # Application structure:
 - front-end
   - pages
-    page contains javascript that pulls data from the api
+    - page contains javascript that pulls data from the api
   - router
-    routes hardcoded page id's to include corresponding page
+    - routes hardcoded page id's to include corresponding page
 - back-end
   - admin area
   - api
