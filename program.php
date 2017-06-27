@@ -12,7 +12,24 @@ include "header.php";
 
 
   </section>
-  <script src="js/program.js"></script> <!-- important to have js run after the page is loaded, had issues with js not seeing tags that load after -->
+  <script>
+  /**
+    * Program page
+    */
+
+
+  var container = document.querySelector('.container');
+
+  /**
+    * Adds the intro text
+    */
+  fetch('api/?t=paragraph&a=getByPageId&i=2')
+    .then(function(response) { return response.json(); })
+    .then(function(data) {
+      addIntro(data, container);
+      addParagraphs(data, container);
+    });
+    </script> <!-- important to have js run after the page is loaded, had issues with js not seeing tags that load after -->
 
 <?php
 include "footer.php";

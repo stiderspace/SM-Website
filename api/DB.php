@@ -96,7 +96,7 @@ class DB {
 
     try {
       if($conn->query($sql))
-        return true;
+        echo "succes";
       else
         throw new Exception("updating data failed");
     } catch(Exception $e) {

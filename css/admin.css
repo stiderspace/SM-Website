@@ -1,8 +1,11 @@
 /*
-  CSS voor Social Media project
-  Admin gedeelte
-  autheur: Haki Karer Taylan
-*/
+ * CSS voor Social Media project
+ *Publieke gedeelte van de site
+ *autheur: Haki Karer Taylan
+ */
+html { font-family: 'Helvetica', 'Calibri', 'Arial', sans-serif; }
+body { margin: 0; padding: 0; background: whitesmoke; font-size: 16px; line-height: 1.5em; }
+
 
 body {
   margin: 0;
@@ -16,4 +19,16 @@ p {
   font-size: 0.75em;
   padding: 1em;
   line-height: 1.5em;
+}
+
+#menu-desktop { display: none; }
+#menu-mobile { display: block; position: fixed; width: 100%; transition: ease-in-out 0.5s; }
+
+.container { width: calc(100% - 2em); overflow: auto; padding: 1em; background: white; }
+
+@media only screen and (min-width: 1020px) {
+  #menu-desktop { display: block; }
+  #menu-mobile { display: none; }
+
+  .container { width: calc(1020px - 4em); padding: 2em; margin: auto; }
 }

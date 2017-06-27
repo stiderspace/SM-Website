@@ -30,7 +30,7 @@ header { width: 100%; height: 60vh; }
 #informatica-menu li { display: inline; padding: 0 0.5em 0 0.5em; font-weight: bold; color: whitesmoke; }
 #informatica-menu li a { color: #babcbc; text-decoration: none; transition: ease-in-out 0.3s; }
 
-#menu-mobile { position: fixed; height: 100vh; width: 100%; transition: ease-in-out 0.5s; }
+#menu-mobile { position: fixed; width: 100%; transition: ease-in-out 0.5s; }
 #menu-mobile-bar { width: calc(100% - 2em); height: calc(4em - 2em); padding: 1em; }
 #menu-mobile-logo { float: left; }
 #menu-mobile-logo img { height: 2em; }

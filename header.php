@@ -67,10 +67,12 @@
           if(open) {
             open = false;
             mobile.style.backgroundColor = "";
+            mobile.style.height = "auto";
             menu.style.display = "none";
           } else {
             open = true;
             mobile.style.backgroundColor = "white";
+            mobile.style.height = "100vh";
             menu.style.display = "block";
           }
       }
