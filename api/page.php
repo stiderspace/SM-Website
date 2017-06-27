@@ -29,10 +29,10 @@ class Page {
     $name = $_POST["name"];
     $image_url = $_POST["image_url"];
 
-    $sql = "set name = {$name}, image_url = {$image_url}
+    $sql = "set name = \"{$name}\", image_url = \"{$image_url}\"
             where id = {$id}";
 
-    DB::update("page", $sql);
+    DB::update("page", $sql, "../admin/?p=pages&a=edit&i=" . $id);
   }
 
 }

@@ -45,9 +45,11 @@ class Student {
     */
   function update($id) {
     $name = $_POST["name"];
+    $image_url = $_POST["image_url"];
     $bio = $_POST["bio"];
+    $linkedin_url = $_POST["linkedin_url"];
 
-    $sql = "set name = {$name}, bio = {$bio}, url = {$url}, url_name = {$url_name}
+    $sql = "set name = \"{$name}\", image_url = \"{$image_url}\", bio = \"{$bio}\", linkedin_url = \"{$linkedin_url}\"
             where id = {$id}";
 
     DB::update("student", $sql);

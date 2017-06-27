@@ -1,0 +1,3 @@
+function clearContainer() {
+  $(".container").html("");
+}

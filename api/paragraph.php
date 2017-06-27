@@ -73,15 +73,13 @@ class Paragraph {
     * @param $id The paragraph id
     */
   function update($id) {
-    // $id = $_POST["id"];
     $title = $_POST["title"];
     $body = $_POST["body"];
     $image_url = $_POST["image_url"];
     $type = $_POST["type"];
-    // $position = $_POST["position"];
     $page_id = $_POST["page_id"];
 
-    $sql = "set title = {$title}, body = {$body}, image_url = {$image_url}, type = {$type}, page_id = {$page_id}
+    $sql = "set title = \"{$title}\", body = \"{$body}\", image_url = \"{$image_url}\", type = \"{$type}\", page_id = \"{$page_id}\"
             where id = {$id}";
 
     DB::update("paragraph", $sql);

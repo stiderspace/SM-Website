@@ -24,7 +24,7 @@ p {
 #menu-desktop { display: none; }
 #menu-mobile { display: block; position: fixed; width: 100%; transition: ease-in-out 0.5s; }
 
-.container { width: calc(100% - 2em); overflow: auto; padding: 1em; background: white; }
+.container { width: calc(100% - 2em); overflow: auto; padding: 1em; background: white; transition: ease-in-out 0.3s; }
 
 @media only screen and (min-width: 1020px) {
   #menu-desktop { display: block; }

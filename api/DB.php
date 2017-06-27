@@ -89,16 +89,17 @@ class DB {
     * @param $table table on which the update applies
     * @param $sql The query containing just a SET and WHERE statement
     */
-  function update($table, $sql) {
+  function update($table, $sql, $location) {
     global $conn;
 
     $query = "update {$table} " . $sql;
 
     try {
-      if($conn->query($sql))
-        echo "succes";
-      else
+      if($conn->query($query))
+        echo '<META HTTP-EQUIV=REFRESH CONTENT="1; ' .$location . '">';
+      else {
         throw new Exception("updating data failed");
+      }
     } catch(Exception $e) {
       echo "Error: {$e->getMessage()}";
     }

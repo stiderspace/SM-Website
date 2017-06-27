@@ -77,7 +77,7 @@ class Media {
     $url_title = $_POST["url_title"];
     $page_id = $_POST["page_id"];
 
-    $sql = "set title = {$title}, description = {$description}, image_url = {$image_url}, url = {$url}, url_title = {$url_title}, page_id = {$page_id}
+    $sql = "set title = \"{$title}\", description = \"{$description}\", image_url = \"{$image_url}\", url = \"{$url}\", url_title = \"{$url_title}\", page_id = {$page_id}
             where id = {$id}";
 
     DB::update("media", $sql);

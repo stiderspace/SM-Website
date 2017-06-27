@@ -51,7 +51,7 @@ class Student_work {
     $url = $_POST["url"];
     $url_title = $_POST["url_title"];
 
-    $sql = "set title = {$title}, description = {$description}, url = {$url}, url_title = {$url_title}
+    $sql = "set title = \"{$title}\", description = \"{$description}\", url = \"{$url}\", url_title = \"{$url_title}\"
             where id = {$id}";
 
     DB::update("student_work", $sql);
