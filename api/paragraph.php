@@ -75,19 +75,24 @@ class Paragraph {
   function update($id) {
     $title = $_POST["title"];
     $body = $_POST["body"];
-    $image_url = $_POST["image_url"];
+    $image_url = $_FILES["image_url"]["name"];
     $type = $_POST["type"];
     $page_id = $_POST["page_id"];
+
+    $target_dir = "../img/";
+    $target_file = $target_dir . basename($_FILES["image_url"]["name"]);
+
+    move_uploaded_file($_FILES["image_url"]["tmp_name"], $target_file);
 
     $sql = "set title = \"{$title}\", body = \"{$body}\", image_url = \"{$image_url}\", type = \"{$type}\", page_id = \"{$page_id}\"
             where id = {$id}";
 
-    DB::update("paragraph", $sql);
+    DB::update("paragraph", $sql, "../admin/?p=paragraphs&a=edit&i=" . $id);
   }
 
   function delete($id) {
     try {
-      DB::delete($id, "paragraph");
+      DB::delete($id, "paragraph", "../admin/?p=paragraphs&a=list");
     } catch(Exception $e) {
       echo "Error {$e->getMessage()}";
     }

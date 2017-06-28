@@ -21,14 +21,37 @@ p {
   line-height: 1.5em;
 }
 
+a {
+  cursor: pointer;
+}
+
+header { width: 100%; padding: 1em; line-height: 1.5em; font-size: 1.25em; font-weight: bold; }
+
 #menu-desktop { display: none; }
-#menu-mobile { display: block; position: fixed; width: 100%; transition: ease-in-out 0.5s; }
+#menu-desktop #logo { float: left; }
+#menu-desktop #menu { float: right; }
+#menu-desktop #menu li { display: inline; padding: 0 0.5em 0 0.5em; }
+
+#menu-mobile { width: 100%; transition: ease-in-out 0.5s; overflow: auto; }
+#menu-mobile #bar { width: calc(100% - 2em); height: calc(4em - 2em); padding: 1em; background: white; }
+#menu-mobile #bar #logo { float: left; }
+#menu-mobile #bar #logo img { height: 2em; transition: ease-in-out 0.3s; }
+#menu-mobile #hamburger { float: right; }
+#menu-mobile #hamburger img { width: 2em; }
+#menu-mobile-list { margin-top: 2em; display: none; list-style: none; }
 
 .container { width: calc(100% - 2em); overflow: auto; padding: 1em; background: white; transition: ease-in-out 0.3s; }
+.mobile-hidden { display: none; }
+
+label img { width: 100%; }
+
+footer { width: 100%; text-align: center; }
 
 @media only screen and (min-width: 1020px) {
   #menu-desktop { display: block; }
   #menu-mobile { display: none; }
 
   .container { width: calc(1020px - 4em); padding: 2em; margin: auto; }
+  .mobile-hidden { display: block; }
+
 }

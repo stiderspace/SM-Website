@@ -1,4 +1,4 @@
-function loadPages() {
+function listPages() {
   clearContainer();
 
   var table = $("<table></table>");
@@ -6,16 +6,12 @@ function loadPages() {
   $(".container").append(table);
 
   var thead = $('<thead></thead>')
+  $(thead).html(`<tr>
+                    <td>Name</td>
+                    <td>Image</td>
+                    <td>Edit</td>
+                  </tr>`);
   $(table).append(thead);
-  var theadRow = $('<tr></tr>');
-  $(thead).append(theadRow);
-  var colName = $("<td></td>");
-  $(colName).html("Page name");
-  $(theadRow).append(colName);
-  var colImage = $("<td></td>");
-  $(colImage).html("Image");
-  $(theadRow).append(colImage);
-
 
   var tbody = $('<tbody></tbody>');
   $(table).append(tbody);
@@ -26,8 +22,8 @@ function loadPages() {
       var name = $("<td></td>");
       var image_url = $("<td></td>");
 
-      var editLink = $("<a></a>");
-      $(editLink).html("edit");
+      var editLink = $("<td></td>");
+      $(editLink).html("<a>edit</a>");
       $(editLink).attr("onclick", "editPage(" + value.id + ")");
 
       /* var deleteLink = $("<a></a>");
@@ -53,6 +49,7 @@ function editPage(id) {
   var form = $("<form></form>");
   $(form).attr('method', 'POST');
   $(form).attr('action', '../api/index.php?t=page&a=update&i=' + id);
+  $(form).attr('enctype', 'multipart/form-data');
 
   var nameLabel = $("<label></label>");
   $(nameLabel).html("Name");

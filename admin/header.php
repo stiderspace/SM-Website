@@ -10,38 +10,36 @@
 <body>
   <header>
     <section id="menu-desktop">
-      <section id="admin-bar">
-        <section id="inholland-logo">
+      <section id="bar">
+        <section id="logo">
           Informatica Control Panel
         </section>
-        <nav id="inholland-menu">
-          <li><a onclick="loadControlPanel()">Control Panel</a></li>
-          <li><a onclick="loadPages()">Pages</a></li>
-          <li><a onclick="loadProgram()">Program</a></li>
-          <li><a onclick="loadMedia()">Media</a></li>
-          <li><a onclick="loadStudentWorks()">Student Works</a></li>
-          <li><a onclick="loadStudents()">Students</a></li>
-          <li><a onclick="loadHaarlem()">Haarlem</a></li>
+        <nav id="menu">
+          <li><a onclick="goHome()">Control Panel</a></li>
+          <li><a onclick="listPages()">Pages</a></li>
+          <li><a onclick="listParagraphs()">Paragraphs</a></li>
+          <li><a onclick="listMedia()">Media</a></li>
+          <li><a onclick="listStudentWork()">Student Works</a></li>
+          <li><a onclick="listStudents()">Students</a></li>
         </nav>
       </section>
     </section>
     <section id="menu-mobile">
-      <section id="menu-mobile-bar">
-        <section id="menu-mobile-logo">
+      <section id="bar">
+        <section id="logo">
           Informatica Control Panel
         </section>
-        <section id="menu-mobile-hamburger">
-          <img src="../img/hamburger.png" id="hamburger" alt="menu" onclick="menu()" />
+        <section id="hamburger">
+          <img src="../img/hamburger.png" class="hamburger" alt="menu" onclick="menu()" />
         </section>
       </section>
-      <nav id="menu-mobile-list">
-        <li><a onclick="loadControlPanel()">Control Panel</a></li>
-        <li><a onclick="loadPages()">Pages</a></li>
-        <li><a onclick="loadProgram()">Program</a></li>
-        <li><a onclick="loadMedia()">Media</a></li>
-        <li><a onclick="loadStudentWorks()">Student Works</a></li>
-        <li><a onclick="loadStudents()">Students</a></li>
-        <li><a onclick="loadHaarlem()">Haarlem</a></li>
+      <nav id="menu-mobile-list" onclick="hideMenu()">
+        <li><a onclick="goHome()">Control Panel</a></li>
+        <li><a onclick="listPages()">Pages</a></li>
+        <li><a onclick="listParagraphs()">Paragraphs</a></li>
+        <li><a onclick="listMedia()">Media</a></li>
+        <li><a onclick="listStudentWork()">Student Works</a></li>
+        <li><a onclick="listStudents()">Students</a></li>
       </nav>
     </section>
   </header>
@@ -49,20 +47,22 @@
     var open = false;
 
     function menu() {
-      var mobile = document.querySelector('#menu-mobile');
-      var menu = document.querySelector('#menu-mobile-list');
+      var mobile = $('#menu-mobile');
+      var menu = $('#menu-mobile-list');
 
-        if(open) {
-          open = false;
-          mobile.style.backgroundColor = "";
-          mobile.style.height = "auto";
-          menu.style.display = "none";
-        } else {
-          open = true;
-          mobile.style.backgroundColor = "white";
-          mobile.style.height = "100vh";
-          menu.style.display = "block";
-        }
+      if(open) {
+        open = false;
+        $(mobile).css('background', '');
+        $(mobile).css('height', 'auto');
+        $(menu).css('display', "none");
+        $('.hamburger').attr('src', '../img/hamburger.png');
+      } else {
+        open = true;
+        $(mobile).css('background', 'white');
+        $(mobile).css('height', '100vh');
+        $(menu).css('display', 'block');
+        $('.hamburger').attr('src', '../img/close.png');
+      }
     }
 
   </script>

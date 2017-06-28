@@ -23,7 +23,9 @@ fetch('api/?t=paragraph&a=getByPageId&i=6')
   .then(function(response) { return response.json(); })
   .then(function(data) {
     addIntro(data, container);
+    addParagraphs(data, container);
   });
+
 </script> <!-- important to have js run after the page is loaded, had issues with js not seeing tags that load after -->
 
 

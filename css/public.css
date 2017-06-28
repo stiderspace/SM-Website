@@ -31,10 +31,11 @@ header { width: 100%; height: 60vh; }
 #informatica-menu li a { color: #babcbc; text-decoration: none; transition: ease-in-out 0.3s; }
 
 #menu-mobile { position: fixed; width: 100%; transition: ease-in-out 0.5s; }
-#menu-mobile-bar { width: calc(100% - 2em); height: calc(4em - 2em); padding: 1em; }
-#menu-mobile-logo { float: left; }
-#menu-mobile-logo img { height: 2em; }
-#menu-mobile-hamburger { float: right; }
+#menu-mobile #bar { width: calc(100% - 2em); height: calc(4em - 2em); padding: 1em; background: white; }
+#menu-mobile #bar #logo { float: left; }
+#menu-mobile #bar #logo img { height: 2em; transition: ease-in-out 0.3s; }
+#menu-mobile #hamburger { float: right; }
+#menu-mobile #hamburger img { width: 2em; }
 #menu-mobile-list { display: none; }
 #menu-mobile nav { margin: 0; padding: 1em; }
 #menu-mobile li { list-style: none; font-size: 1.25em; font-weight: bold; line-height: 1.5em; }
@@ -49,8 +50,10 @@ header { width: 100%; height: 60vh; }
 
 
 
-footer { width: calc(100% - 2em); height: 12em; padding: 1em; background: rgb(51, 51, 51); border-bottom: 1em solid #2c4a6d; }
-
+footer { font-size: 0.75em; font-weight: bold; width: calc(100% - 2em); height: 2em; padding: 1em; background: rgba(44, 74, 109, 1); border-bottom: 1em solid rgba(37, 61, 91, 1); }
+footer #copyright { color: white; float: left; line-height: 1em; padding: 0.5em; }
+footer #fb { color: white; float: right; line-height: 1em; padding: 0.5em; }
+footer #fb a { color: white; text-decoration: none; }
 
 
 @media only screen and (min-width: 1020px) {

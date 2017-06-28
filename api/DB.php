@@ -88,6 +88,7 @@ class DB {
     * Updates a table with given query
     * @param $table table on which the update applies
     * @param $sql The query containing just a SET and WHERE statement
+    * @param $location Redirect url
     */
   function update($table, $sql, $location) {
     global $conn;
@@ -96,7 +97,7 @@ class DB {
 
     try {
       if($conn->query($query))
-        echo '<META HTTP-EQUIV=REFRESH CONTENT="1; ' .$location . '">';
+        echo '<META HTTP-EQUIV=REFRESH CONTENT="1; ' . $location . '">';
       else {
         throw new Exception("updating data failed");
       }
@@ -106,25 +107,27 @@ class DB {
   }
 
   /**
-    * Inserts data from query - insert only queries
-    * Returns true on succes else false
+    * Redirects on succes
     */
-  function insert($sql) {
+  function insert($sql, $location) {
     global $conn;
 
     if($conn->query($sql))
-      return true;
+      echo '<META HTTP-EQUIV=REFRESH CONTENT="1; ' . $location . '">';
     else
       throw new Exception("inserting data failed");
   }
 
-  function delete($id, $table) {
+  /**
+    * Redirects on succes
+    */
+  function delete($id, $table, $location) {
     global $conn;
 
     if(is_numeric($id)) {
       $sql = "delete from " . $table . " where id = " . $id;
       if($conn->query($sql))
-        return true;
+        echo '<META HTTP-EQUIV=REFRESH CONTENT="1; ' . $location . '">';
       else
         throw new Exception("The {$table} doesn't exist");
     }

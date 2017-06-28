@@ -12,7 +12,7 @@
     <section id="menu-desktop">
       <section id="inholland-bar">
         <section id="inholland-logo">
-          <img src="img/inholland.png" alt="Hogeschool InHolland" />
+          <a href="?t=page&a=get&i=1"><img src="img/inholland.png" alt="Hogeschool Inholland" /></a>
         </section>
         <nav id="inholland-menu">
           <li><a href="#">Opleidingen</a></li>
@@ -35,12 +35,12 @@
       </section>
     </section>
     <section id="menu-mobile">
-      <section id="menu-mobile-bar">
-        <section id="menu-mobile-logo">
-          <img src="img/inholland.png" alt="Hogeschool Inholland" />
+      <section id="bar">
+        <section id="logo">
+          <a href="?t=page&a=get&i=1"><img src="img/inholland.png" alt="Hogeschool Inholland" /></a>
         </section>
-        <section id="menu-mobile-hamburger">
-          <img src="img/hamburger.png" id="hamburger" alt="menu" onclick="menu()" />
+        <section id="hamburger">
+          <img src="img/hamburger.png" class="hamburger" alt="menu" onclick="menu()" />
         </section>
       </section>
       <nav id="menu-mobile-list">
@@ -61,19 +61,21 @@
       var open = false;
 
       function menu() {
-        var mobile = document.querySelector('#menu-mobile');
-        var menu = document.querySelector('#menu-mobile-list');
+        var mobile = $('#menu-mobile');
+        var menu = $('#menu-mobile-list');
 
           if(open) {
             open = false;
-            mobile.style.backgroundColor = "";
-            mobile.style.height = "auto";
-            menu.style.display = "none";
+            $(mobile).css('background', '');
+            $(mobile).css('height', 'auto');
+            $(menu).css('display', "none");
+            $('.hamburger').attr('src', '/img/hamburger.png');
           } else {
             open = true;
-            mobile.style.backgroundColor = "white";
-            mobile.style.height = "100vh";
-            menu.style.display = "block";
+            $(mobile).css('background', 'white');
+            $(mobile).css('height', '100vh');
+            $(menu).css('display', 'block');
+            $('.hamburger').attr('src', '/img/close.png');
           }
       }
 
